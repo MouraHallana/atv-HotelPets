@@ -34,9 +34,26 @@ for(const tutor of tutores.value) {
 
 return 'Oopss... Tutor não encontrado :('
 }
+
+async function excluirPet(id) {
+    const confirmarExclusão = window.confirm('Você realmente deseja excluir esse pet? essa acão não volta')
+
+    if (confirmarExclusão) {
+        await fetch(`${API_URL}/pets/${id}`, {
+            method: 'DELETE'
+        });
+
+       await carregarDados();
+    }
+}
+    
+
+
+
 onMounted(carregarDados)
 
 </script>
+
 <template>
   <div>
     <header class="mb-4">
@@ -46,12 +63,21 @@ onMounted(carregarDados)
       </p>
     </header>
 
+
+    <RouterLink
+      class="btn btn-outline-primary"
+      :to="{ name: 'addPet' }"
+    >
+      Cadastrar pet
+    </RouterLink>
+
     <table class="table table-striped table-hover">
         <thead>
             <th>id</th>
             <th>Nome</th>
             <th>Espécie</th>
             <th>Tutor</th>   
+            <th>Ações</th>
            </thead>
 
             <tbody>
@@ -60,6 +86,10 @@ onMounted(carregarDados)
                     <td>{{ pet.nome }}</td>
                     <td>{{ pet.especie}}</td>
                     <td>{{ nomeDoTutor(pet.tutorId)}}</td>
+                    <td>
+                        <RouterLink :to="`/pets/${pet.id}`"> Visualizar </RouterLink>
+                    </td>
+                    <button class="btn btn-danger" @click="excluirPet(pet.id)">Excluir</button>
 
                 </tr>
             </tbody>

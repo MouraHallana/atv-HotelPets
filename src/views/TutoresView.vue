@@ -1,0 +1,50 @@
+<script setup>
+import { onMounted, ref } from 'vue';
+import { RouterLink } from 'vue-router';
+
+const pets = ref([])
+const tutores = ref([])
+const API_URL = 'http://localhost:3000'
+
+async function carregandoDados() {
+    const respostaTutotes = await fetch(`${API_URL}/tutores`)
+    tutores.value = await respostaTutotes.json()
+
+    const respostaPets = await fetch(`${API_URL}/pets`)
+    pets.value = await respostaPets.json()
+
+    console.log('TUTORES', tutores.value);
+    console.log('PETS', pets.value)
+}
+onMounted(carregandoDados)
+</script>
+<template>
+<div>
+    <header>
+        <h1 class="text-2xl font-bold" >Listagem de tutores</h1>
+        <p class="text-body-secondary mb-0" >Listaqgem dos tutores cadastrados no sistema</p>
+    </header>
+
+    <div class="tabela"></div>
+        <table class="table table-striped table-hover"> 
+            <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                <tr v-for="tutor in tutores" :key="tutor.id">
+                    <td>{{ tutor.id }}</td>
+                    <td> {{ tutor.nome }}</td>
+                    <td>{{ tutor.telefone }}</td>
+                    <td> 
+                        <RouterLink :to="`/tutores/${tutor.id}`"> Visualizar </RouterLink>
+                    </td>
+                </tr>
+            </tbody>
+
+            </table>
+
+</div>
+</template>
