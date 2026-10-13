@@ -29,7 +29,7 @@ async function salvarPet() {
   await fetch(`${API_URL}/pets`, {
     method: 'POST',
     headers: {
-      'Contend-type': 'aplication/json',
+      'Content-type': 'application/json',
     },
     body: JSON.stringify(novoPet.value)
   }) 
@@ -47,7 +47,7 @@ onMounted(carregarTutores)
 
   <div>
     <header class="mb-4">
-      <h1 class="text-2xl font-bold">Listagem de Pets</h1>
+      <h1 class="text-2xl font-bold">Cadastrar pets</h1>
       <p class="text-body-secondary mb-0">Cadastro de Pets no sistema.</p>
     </header> 
 </div>
@@ -86,12 +86,10 @@ onMounted(carregarTutores)
   </select>
  </div>
 <div class="col-12 d-flex gap-2">
-  <button class="btn btn-sucess" type="submit">Salvar Pet</button>
+  <button class="btn btn-success" type="submit">Salvar Pet</button>
 </div>
 </form>
 
 
-    <RouterLink class="btn btn-primary" :to="{ name: 'pets/add' }">
-        Cadastrar Pet
-    </RouterLink>
+<RouterLink :to="{ name: 'pets' }" class="btn btn-outline-primary">Lista Pet</RouterLink>
 </template>
