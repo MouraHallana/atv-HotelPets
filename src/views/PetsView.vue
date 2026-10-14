@@ -35,6 +35,7 @@ for(const tutor of tutores.value) {
 return 'Oopss... Tutor não encontrado :('
 }
 
+
 async function excluirPet(id) {
     const confirmarExclusão = window.confirm('Você realmente deseja excluir esse pet? essa acão não volta')
 
