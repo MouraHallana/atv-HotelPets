@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter, RouterLink } from 'vue-router';
 
 const router = useRouter()
-const API_URL = 'http:/localhost:3000'
+const API_URL = 'http://localhost:3000'
 const tutores = ref(null)
 const novoTutor = ref({
     nome: '',
@@ -59,7 +59,7 @@ onMounted(carregarTutores)
           Telefone:
         </label>
         <input
-          type="text"
+          type="tel"
           class="form-control"
           id="nome"
           v-model="novoTutor.telefone"
@@ -70,7 +70,7 @@ onMounted(carregarTutores)
 
         </div>
 
-           <button
+           <button 
           class="btn btn-success"
           type="submit"
         >
@@ -79,3 +79,8 @@ onMounted(carregarTutores)
 
         </form>
 </template>
+<style scoped>
+.button {
+  width: 20px;
+}
+</style>
