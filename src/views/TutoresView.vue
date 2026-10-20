@@ -48,14 +48,19 @@ onMounted(carregandoDados)
             <thead>
                 <th>Id</th>
                 <th>Nome</th>
+                <th>CPF</th>
                 <th>Telefone</th>
-                <th>Ações</th>
+                <th>E-mail</th>
+                <th>Açoes</th>
             </thead>
             <tbody>
                 <tr v-for="tutor in tutores" :key="tutor.id">
                     <td>{{ tutor.id }}</td>
                     <td> {{ tutor.nome }}</td>
+                    <td>{{ tutor.cpf }}</td>
                     <td>{{ tutor.telefone }}</td>
+                    <td>{{ tutor.email }}</td>
+
                     <td> 
                         <RouterLink :to="`/tutores/${tutor.id}`"> Visualizar </RouterLink>
                     </td>

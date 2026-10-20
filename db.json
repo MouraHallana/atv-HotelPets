@@ -3,12 +3,34 @@
     {
       "id": "1",
       "nome": "Ana",
-      "telefone": "47999990000"
+      "telefone": "47999990000",
+      "cpf": "123.456.789-00",
+      "dataNascimento": "01/01/1990",
+      "email": "ana@email.com",
+      "endereco": {
+        "rua": "Rua Luiz Gualberto",
+        "numero": "123",
+        "bairro": "Centro",
+        "cidade": "São Francisco do Sul",
+        "estado": "SC",
+        "cep": "89330-000"
+      }
     },
     {
       "id": "2",
       "nome": "Carlos",
-      "telefone": "47988880000"
+      "telefone": "47988880000",
+      "cpf": "987.654.321-00",
+      "dataNascimento": "01/01/1990",
+      "email": "carlos@email.com",
+      "endereco": {
+        "rua": "Rua XV de Novembro",
+        "numero": "456",
+        "bairro": "Centro",
+        "cidade": "Joinville",
+        "estado": "SC",
+        "cep": "89201-601"
+      }
     }
   ],
   "pets": [
