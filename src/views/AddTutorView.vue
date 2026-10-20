@@ -31,6 +31,19 @@ async function addTutor() {
 onMounted(carregarTutores)
 </script>
 <template>
+    <header class="mb-4">
+      <h1 class="text-2xl font-bold">Listagem dos Tutores no sistema</h1>
+      <p class="text-body-secondary mb-0">
+        Listagem dos tutores cadastrados no sistema.
+      </p>
+    </header>
+
+        <RouterLink
+      class="btn btn-outline-primary"
+      :to="{ name: 'tutoresView' }"
+    >
+      Lista tutores
+    </RouterLink>
 
  <form
       class="row"
@@ -55,27 +68,30 @@ onMounted(carregarTutores)
              <label
           for="telefone"
           class="form-label"
+          placeholder="Insira seu telefone"
+          required
         >
           Telefone:
         </label>
         <input
           type="tel"
           class="form-control"
-          id="nome"
+          id="telefone"
           v-model="novoTutor.telefone"
-          required
+          placeholder="Ex: (11) 99999-1234"
         />
 
 
 
         </div>
-
-           <button 
+     <div class="col-12 d-flex gap-3">
+        <button
           class="btn btn-success"
           type="submit"
         >
-          Salvar Tutor
+          Salvar Pet
         </button>
+      </div>
 
         </form>
 </template>

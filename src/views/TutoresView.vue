@@ -36,6 +36,13 @@ onMounted(carregandoDados)
         <p class="text-body-secondary mb-0" >Listaqgem dos tutores cadastrados no sistema</p>
     </header>
 
+    <RouterLink
+      class="btn btn-outline-primary"
+      :to="{ name: 'addTutor' }"
+    >
+      Cadastrar tutor
+    </RouterLink>
+
     <div class="tabela"></div>
         <table class="table table-striped table-hover"> 
             <thead>
